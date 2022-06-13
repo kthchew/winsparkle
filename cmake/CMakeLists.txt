@@ -16,7 +16,7 @@ cmake_policy(SET CMP0022 NEW)
 
 find_package(Gettext REQUIRED)
 
-get_filename_component(ROOT_DIR ${CMAKE_SOURCE_DIR}/.. REALPATH)
+get_filename_component(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/.. REALPATH)
 
 # Parse version header to always have actual version of winsparkle
 file(READ "${ROOT_DIR}/include/winsparkle-version.h" VERSION_FILE)
@@ -26,10 +26,10 @@ string(REGEX REPLACE "^.*#[ \t]*define[ \t]+WIN_SPARKLE_VERSION_MICRO[ \t]+([0-9
 
 set(LIB_VERSION_STRING "${LIB_MAJOR_VERSION}.${LIB_MINOR_VERSION}.${LIB_PATCH_VERSION}")
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin" )
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/bin" )
 # Use the same path for shared and static library
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib" )
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib" )
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/lib" )
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/lib" )
 
 set(BIN_INSTALL_DIR "bin")
 set(LIB_INSTALL_DIR "lib")
